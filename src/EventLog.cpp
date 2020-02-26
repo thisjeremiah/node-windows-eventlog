@@ -149,8 +149,8 @@ namespace {
             std::string severity = severityProvided ? *Nan::Utf8String(info[0]->ToString(Nan::GetCurrentContext()).ToLocalChecked()) : "info";
             std::string message = *Nan::Utf8String(info[severityProvided ? 1 : 0]->ToString(Nan::GetCurrentContext()).ToLocalChecked());
             DWORD eventId = eventIdProvided ? (info[1]->IsNumber() ?
-                                               Nan::To<v8::UInt32>(info[1]).ToLocalChecked()->Value() :
-                                               Nan::To<v8::UInt32>(info[2]).ToLocalChecked()->Value()
+                                               Nan::To<v8::Uint32>(info[1]).ToLocalChecked()->Value() :
+                                               Nan::To<v8::Uint32>(info[2]).ToLocalChecked()->Value()
                                                ) : 1000;
             Nan::Callback *callback = new Nan::Callback(info[severityProvided ? 2 : 1].As<v8::Function>());
 
@@ -178,8 +178,8 @@ namespace {
             std::string severity = severityProvided ? *Nan::Utf8String(info[0]->ToString(Nan::GetCurrentContext()).ToLocalChecked()) : "info";
             std::string message = *Nan::Utf8String(info[severityProvided ? 1 : 0]->ToString(Nan::GetCurrentContext()).ToLocalChecked());
             DWORD eventId = eventIdProvided ? (info[1]->IsNumber() ?
-                                               Nan::To<v8::UInt32>(info[1]).ToLocalChecked()->Value() :
-                                               Nan::To<v8::UInt32>(info[2]).ToLocalChecked()->Value()
+                                               Nan::To<v8::Uint32>(info[1]).ToLocalChecked()->Value() :
+                                               Nan::To<v8::Uint32>(info[2]).ToLocalChecked()->Value()
                                                ) : 1000;
 
             WORD type;
