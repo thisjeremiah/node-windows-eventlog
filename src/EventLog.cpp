@@ -116,9 +116,7 @@ namespace {
                 return;
             }
             
-            Local<Context> context = Nan::GetCurrentContext();
-            
-            Nan::Utf8String source(info[0]->ToString(context).ToLocalChecked());
+            Nan::Utf8String source(info[0]->ToString(Nan::GetCurrentContext()).ToLocalChecked());
 
             EventLog* eventLog = new EventLog(*source);
             eventLog->Wrap(info.This());
