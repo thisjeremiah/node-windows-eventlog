@@ -115,8 +115,10 @@ namespace {
                 Nan::ThrowError("First argument must be the name of the event log source");
                 return;
             }
-
-            Nan::Utf8String source(info[0]->ToString());
+            
+            Local<Context> context = Nan::GetCurrentContext();
+            
+            Nan::Utf8String source(info[0]->ToString(context).ToLocalChecked());
 
             EventLog* eventLog = new EventLog(*source);
             eventLog->Wrap(info.This());
